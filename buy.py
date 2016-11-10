@@ -4,6 +4,7 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 from splinter import Browser
+from selenium import webdriver
 import time
 import md5
 import ConfigParser
@@ -39,7 +40,9 @@ ccyearfield = config.get('Kreditkort', 'ccyear') # udloebsaar
 cccvcfield = config.get('Kreditkort', 'cvc')  # cvc
 browser = Browser('chrome')
 
+
 try:
+    browser.visit(baseUrl)
     input("Tryk enter for at coppe!")
 except SyntaxError:
     pass
@@ -55,8 +58,7 @@ def main():
     if am == 1 and product_name in r:
         print("Product1 Fundet")
         parse(r)
-    if am == 2:
-         if product_name2 in r2 and product_name in r:
+    if am == 2 and product_name2 in r2:
             print("Product2 Fundet")
             parser(r2)
     else:
@@ -176,4 +178,4 @@ while (True):
     print("Forsoeg nummer " + str(i))
     main()
     i = i + 1
-    time.sleep(1)
+    time.sleep(1.75)
