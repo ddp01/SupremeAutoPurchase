@@ -9,6 +9,7 @@ import md5
 import ConfigParser
 from itertools import count
 
+am = 2 # mode 2 will purchase keyword2 in the size2, and color2. mode1 will purchase both keyword2 and keyword.
 done1 = False
 done2 = False
 config = ConfigParser.ConfigParser()
@@ -37,7 +38,6 @@ ccmonthfield = config.get('Kreditkort', 'ccmonth') # maaned
 ccyearfield = config.get('Kreditkort', 'ccyear') # udloebsaar
 cccvcfield = config.get('Kreditkort', 'cvc')  # cvc
 browser = Browser('chrome')
-am = config.get('produkt', 'items')  # items amount 1 or 2
 
 try:
     input("Tryk enter for at coppe!")
@@ -58,7 +58,7 @@ def main():
     if am == 2:
          if product_name2 in r2 and product_name in r:
             print("Product2 Fundet")
-            parse(r)
+            parser(r2)
     else:
         print(r)
         print("Product ikke fundet.")
