@@ -37,7 +37,7 @@ ccmonthfield = config.get('Kreditkort', 'ccmonth') # maaned
 ccyearfield = config.get('Kreditkort', 'ccyear') # udloebsaar
 cccvcfield = config.get('Kreditkort', 'cvc')  # cvc
 browser = Browser('chrome')
-am = config.get('produkt', 'info')  # items amount 1 or 2
+am = config.get('produkt', 'items')  # items amount 1 or 2
 
 try:
     input("Tryk enter for at coppe!")
